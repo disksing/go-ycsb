@@ -17,9 +17,9 @@ default: build
 
 build:
 ifeq ($(TAGS),)
-	$(CGO_FLAGS) go build -o bin/go-ycsb cmd/go-ycsb/*
+	GO111MODULE=on $(CGO_FLAGS) go build -o bin/go-ycsb cmd/go-ycsb/*
 else
-	$(CGO_FLAGS) go build -tags "$(TAGS)" -o bin/go-ycsb cmd/go-ycsb/*
+	GO111MODULE=on $(CGO_FLAGS) go build -tags "$(TAGS)" -o bin/go-ycsb cmd/go-ycsb/*
 endif
 
 check:
